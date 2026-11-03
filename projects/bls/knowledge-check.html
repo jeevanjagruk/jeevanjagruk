@@ -65,10 +65,15 @@
             <label><input type="radio" name="q4" value="b"> No</label>
           </fieldset>
 
-          <button class="button" type="submit">Check answers</button>
+          <button class="button" type="submit">Submit answers</button>
         </form>
 
-        <div id="result" class="notice" role="status" aria-live="polite" hidden></div>
+        <section id="result" class="notice" role="status" aria-live="polite" hidden>
+          <h2 id="score"></h2>
+          <h3>Answer explanations</h3>
+          <div id="explanations"></div>
+          <button class="button button-secondary" id="retry" type="button">Try again</button>
+        </section>
 
         <p>
           <a href="index.html">← Back to Basic Life Support Awareness</a>
@@ -80,37 +85,81 @@
   <footer class="site-footer">
     <div class="container">
       <p>JeevanJagruk — Health Awareness. Informed Choices. Safer Lives.</p>
-      <p>This website is for educational awareness and does not replace professional medical advice or emergency care.</p>
+      <p>
+        This website is for educational awareness and does not replace
+        professional medical advice or emergency care.
+      </p>
     </div>
   </footer>
 
   <script>
-    const answers = {
-      q1: "a",
-      q2: "b",
-      q3: "a",
-      q4: "b"
-    };
+    const quizData = [
+      {
+        name: "q1",
+        answer: "a",
+        explanation:
+          "BLS stands for Basic Life Support. It refers to initial support provided during life-threatening emergencies."
+      },
+      {
+        name: "q2",
+        answer: "b",
+        explanation:
+          "A suspected life-threatening emergency needs prompt attention. Contact local emergency services and follow the dispatcher’s instructions."
+      },
+      {
+        name: "q3",
+        answer: "a",
+        explanation:
+          "An automated external defibrillator (AED) checks a person’s heart rhythm and can deliver a shock when appropriate."
+      },
+      {
+        name: "q4",
+        answer: "b",
+        explanation:
+          "Awareness reading can build understanding, but practical emergency response skills require appropriate hands-on training."
+      }
+    ];
 
-    document.getElementById("quiz").addEventListener("submit", function (event) {
+    const quizForm = document.getElementById("quiz");
+    const result = document.getElementById("result");
+    const scoreHeading = document.getElementById("score");
+    const explanations = document.getElementById("explanations");
+    const retryButton = document.getElementById("retry");
+
+    quizForm.addEventListener("submit", function (event) {
       event.preventDefault();
 
       let score = 0;
-      const total = Object.keys(answers).length;
+      explanations.replaceChildren();
 
-      for (const question in answers) {
-        const selected = document.querySelector(
-          `input[name="${question}"]:checked`
+      quizData.forEach((item, index) => {
+        const selected = quizForm.querySelector(
+          `input[name="${item.name}"]:checked`
         );
+        const isCorrect = selected && selected.value === item.answer;
 
-        if (selected && selected.value === answers[question]) {
+        if (isCorrect) {
           score++;
         }
-      }
 
-      const result = document.getElementById("result");
+        const explanation = document.createElement("p");
+        const status = isCorrect ? "Correct" : "Not quite";
+        explanation.textContent =
+          `${index + 1}. ${status}. ${item.explanation}`;
+        explanations.appendChild(explanation);
+      });
+
+      scoreHeading.textContent = `Your score: ${score} out of ${quizData.length}`;
       result.hidden = false;
-      result.textContent = `You scored ${score} out of ${total}. This is an awareness quiz, not a practical skills assessment.`;
+      result.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    retryButton.addEventListener("click", function () {
+      quizForm.reset();
+      result.hidden = true;
+      explanations.replaceChildren();
+      scoreHeading.textContent = "";
+      quizForm.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   </script>
 </body>
