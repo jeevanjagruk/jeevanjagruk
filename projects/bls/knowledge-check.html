@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BLS Awareness Quiz | JeevanJagruk</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../../index.html">JeevanJagruk</a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="../../index.html">Home</a>
+        <a href="../../about.html">About</a>
+        <a href="../index.html">Projects</a>
+        <a href="../../resources.html">Resources</a>
+        <a href="../../blog.html">Blog</a>
+        <a href="../../get-involved.html">Get Involved</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <p class="eyebrow">Basic Life Support Awareness</p>
+        <h1>BLS Awareness Quiz</h1>
+        <p>Check your understanding of the awareness topics covered in this project.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="notice">
+          This quiz is for general awareness only. It does not assess practical
+          skills or certify you to provide emergency care.
+        </div>
+
+        <form id="quiz">
+          <fieldset class="card">
+            <legend><strong>1. What does BLS stand for?</strong></legend>
+            <label><input type="radio" name="q1" value="a"> Basic Life Support</label><br>
+            <label><input type="radio" name="q1" value="b"> Basic Living Standards</label><br>
+            <label><input type="radio" name="q1" value="c"> Body Life System</label>
+          </fieldset>
+
+          <fieldset class="card">
+            <legend><strong>2. What should you do when you suspect a life-threatening emergency?</strong></legend>
+            <label><input type="radio" name="q2" value="a"> Wait to see if it improves</label><br>
+            <label><input type="radio" name="q2" value="b"> Contact local emergency services promptly</label><br>
+            <label><input type="radio" name="q2" value="c"> Leave the person alone</label>
+          </fieldset>
+
+          <fieldset class="card">
+            <legend><strong>3. What is an AED?</strong></legend>
+            <label><input type="radio" name="q3" value="a"> A device that checks heart rhythm and may deliver a shock when appropriate</label><br>
+            <label><input type="radio" name="q3" value="b"> A device used only to measure temperature</label><br>
+            <label><input type="radio" name="q3" value="c"> A type of ambulance</label>
+          </fieldset>
+
+          <fieldset class="card">
+            <legend><strong>4. Does reading an awareness page replace hands-on training?</strong></legend>
+            <label><input type="radio" name="q4" value="a"> Yes</label><br>
+            <label><input type="radio" name="q4" value="b"> No</label>
+          </fieldset>
+
+          <button class="button" type="submit">Check answers</button>
+        </form>
+
+        <div id="result" class="notice" role="status" aria-live="polite" hidden></div>
+
+        <p>
+          <a href="index.html">← Back to Basic Life Support Awareness</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>JeevanJagruk — Health Awareness. Informed Choices. Safer Lives.</p>
+      <p>This website is for educational awareness and does not replace professional medical advice or emergency care.</p>
+    </div>
+  </footer>
+
+  <script>
+    const answers = {
+      q1: "a",
+      q2: "b",
+      q3: "a",
+      q4: "b"
+    };
+
+    document.getElementById("quiz").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      let score = 0;
+      const total = Object.keys(answers).length;
+
+      for (const question in answers) {
+        const selected = document.querySelector(
+          `input[name="${question}"]:checked`
+        );
+
+        if (selected && selected.value === answers[question]) {
+          score++;
+        }
+      }
+
+      const result = document.getElementById("result");
+      result.hidden = false;
+      result.textContent = `You scored ${score} out of ${total}. This is an awareness quiz, not a practical skills assessment.`;
+    });
+  </script>
+</body>
+</html>
