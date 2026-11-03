@@ -3,17 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BLS Awareness Quiz | JeevanJagruk</title>
+  <title>BLS Knowledge Check | JeevanJagruk</title>
   <link rel="stylesheet" href="../../assets/css/style.css">
 </head>
+
 <body>
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="../../index.html">JeevanJagruk</a>
+
       <nav class="site-nav" aria-label="Main navigation">
         <a href="../../index.html">Home</a>
         <a href="../../about.html">About</a>
-        <a href="../index.html">Projects</a>
         <a href="../../resources.html">Resources</a>
         <a href="../../blog.html">Blog</a>
         <a href="../../get-involved.html">Get Involved</a>
@@ -25,141 +26,212 @@
     <section class="hero">
       <div class="container">
         <p class="eyebrow">Basic Life Support Awareness</p>
-        <h1>BLS Awareness Quiz</h1>
-        <p>Check your understanding of the awareness topics covered in this project.</p>
+        <h1>Knowledge Check</h1>
+        <p>Test what you have learned from the BLS awareness pages.</p>
       </div>
     </section>
 
     <section class="section">
       <div class="container">
         <div class="notice">
-          This quiz is for general awareness only. It does not assess practical
-          skills or certify you to provide emergency care.
+          <strong>Awareness only:</strong>
+          This quiz is for learning and review. It does not replace certified,
+          hands-on training or instructions from emergency professionals.
         </div>
 
-        <form id="quiz">
+        <form id="quiz-form">
           <fieldset class="card">
-            <legend><strong>1. What does BLS stand for?</strong></legend>
-            <label><input type="radio" name="q1" value="a"> Basic Life Support</label><br>
-            <label><input type="radio" name="q1" value="b"> Basic Living Standards</label><br>
-            <label><input type="radio" name="q1" value="c"> Body Life System</label>
+            <legend><strong>1. What does Basic Life Support (BLS) focus on?</strong></legend>
+            <label>
+              <input type="radio" name="q1" value="a">
+              Providing long-term treatment for illnesses
+            </label>
+            <label>
+              <input type="radio" name="q1" value="b">
+              Recognizing emergencies and providing immediate support until help arrives
+            </label>
+            <label>
+              <input type="radio" name="q1" value="c">
+              Replacing the need for emergency medical services
+            </label>
+            <p class="answer-feedback" id="feedback-q1"></p>
           </fieldset>
 
           <fieldset class="card">
-            <legend><strong>2. What should you do when you suspect a life-threatening emergency?</strong></legend>
-            <label><input type="radio" name="q2" value="a"> Wait to see if it improves</label><br>
-            <label><input type="radio" name="q2" value="b"> Contact local emergency services promptly</label><br>
-            <label><input type="radio" name="q2" value="c"> Leave the person alone</label>
+            <legend><strong>2. If you witness a serious emergency, what should you do?</strong></legend>
+            <label>
+              <input type="radio" name="q2" value="a">
+              Ignore it and wait for someone else
+            </label>
+            <label>
+              <input type="radio" name="q2" value="b">
+              Call local emergency services and follow the dispatcher’s instructions
+            </label>
+            <label>
+              <input type="radio" name="q2" value="c">
+              Move the person immediately in every situation
+            </label>
+            <p class="answer-feedback" id="feedback-q2"></p>
           </fieldset>
 
           <fieldset class="card">
             <legend><strong>3. What is an AED?</strong></legend>
-            <label><input type="radio" name="q3" value="a"> A device that checks heart rhythm and may deliver a shock when appropriate</label><br>
-            <label><input type="radio" name="q3" value="b"> A device used only to measure temperature</label><br>
-            <label><input type="radio" name="q3" value="c"> A type of ambulance</label>
+            <label>
+              <input type="radio" name="q3" value="a">
+              An automated external defibrillator
+            </label>
+            <label>
+              <input type="radio" name="q3" value="b">
+              A device used only to measure body temperature
+            </label>
+            <label>
+              <input type="radio" name="q3" value="c">
+              A tool for checking blood pressure at home
+            </label>
+            <p class="answer-feedback" id="feedback-q3"></p>
           </fieldset>
 
           <fieldset class="card">
-            <legend><strong>4. Does reading an awareness page replace hands-on training?</strong></legend>
-            <label><input type="radio" name="q4" value="a"> Yes</label><br>
-            <label><input type="radio" name="q4" value="b"> No</label>
+            <legend><strong>4. Does reading this website qualify someone to provide certified BLS?</strong></legend>
+            <label>
+              <input type="radio" name="q4" value="a">
+              Yes, reading the pages is enough
+            </label>
+            <label>
+              <input type="radio" name="q4" value="b">
+              Yes, if they pass this quiz
+            </label>
+            <label>
+              <input type="radio" name="q4" value="c">
+              No, certified hands-on training is needed
+            </label>
+            <p class="answer-feedback" id="feedback-q4"></p>
           </fieldset>
 
-          <button class="button" type="submit">Submit answers</button>
+          <button class="button" type="submit">Submit Answers</button>
+          <button class="button button-secondary" type="button" id="retry-button" hidden>
+            Try Again
+          </button>
         </form>
 
-        <section id="result" class="notice" role="status" aria-live="polite" hidden>
-          <h2 id="score"></h2>
-          <h3>Answer explanations</h3>
-          <div id="explanations"></div>
-          <button class="button button-secondary" id="retry" type="button">Try again</button>
-        </section>
+        <div id="quiz-results" class="notice" role="status" aria-live="polite" hidden></div>
+      </div>
+    </section>
 
-        <p>
-          <a href="index.html">← Back to Basic Life Support Awareness</a>
-        </p>
+    <section class="section">
+      <div class="container">
+        <div class="notice">
+          <h2>Continue Learning</h2>
+          <p>
+            Review the BLS awareness topics again, and remember that this
+            website does not replace certified, hands-on training.
+          </p>
+          <a class="button" href="index.html">Back to BLS Awareness</a>
+          <a class="button button-secondary" href="../../resources.html">Explore Resources</a>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <p>JeevanJagruk — Health Awareness. Informed Choices. Safer Lives.</p>
       <p>
-        This website is for educational awareness and does not replace
-        professional medical advice or emergency care.
+        JeevanJagruk — Health Awareness. Informed Choices. Safer Lives.
+      </p>
+      <p>
+        This website provides general awareness and is not a substitute for
+        professional medical advice or certified training.
       </p>
     </div>
   </footer>
 
   <script>
-    const quizData = [
-      {
-        name: "q1",
-        answer: "a",
+    const answers = {
+      q1: {
+        correct: "b",
         explanation:
-          "BLS stands for Basic Life Support. It refers to initial support provided during life-threatening emergencies."
+          "BLS awareness focuses on recognizing a life-threatening emergency, getting help, and understanding the role of immediate support until trained help arrives."
       },
-      {
-        name: "q2",
-        answer: "b",
+      q2: {
+        correct: "b",
         explanation:
-          "A suspected life-threatening emergency needs prompt attention. Contact local emergency services and follow the dispatcher’s instructions."
+          "Contact local emergency services as soon as possible and follow the emergency dispatcher’s instructions."
       },
-      {
-        name: "q3",
-        answer: "a",
+      q3: {
+        correct: "a",
         explanation:
-          "An automated external defibrillator (AED) checks a person’s heart rhythm and can deliver a shock when appropriate."
+          "AED stands for automated external defibrillator. It is a device designed to assess heart rhythm and, when indicated, guide a shock."
       },
-      {
-        name: "q4",
-        answer: "b",
+      q4: {
+        correct: "c",
         explanation:
-          "Awareness reading can build understanding, but practical emergency response skills require appropriate hands-on training."
+          "This website is for awareness and learning. It does not provide certification or replace certified, hands-on BLS training."
       }
-    ];
+    };
 
-    const quizForm = document.getElementById("quiz");
-    const result = document.getElementById("result");
-    const scoreHeading = document.getElementById("score");
-    const explanations = document.getElementById("explanations");
-    const retryButton = document.getElementById("retry");
+    const form = document.getElementById("quiz-form");
+    const results = document.getElementById("quiz-results");
+    const retryButton = document.getElementById("retry-button");
 
-    quizForm.addEventListener("submit", function (event) {
+    form.addEventListener("submit", function (event) {
       event.preventDefault();
 
       let score = 0;
-      explanations.replaceChildren();
+      let unanswered = 0;
 
-      quizData.forEach((item, index) => {
-        const selected = quizForm.querySelector(
-          `input[name="${item.name}"]:checked`
+      Object.keys(answers).forEach(function (question) {
+        const selected = form.querySelector(
+          'input[name="' + question + '"]:checked'
         );
-        const isCorrect = selected && selected.value === item.answer;
+        const feedback = document.getElementById("feedback-" + question);
+        const answer = answers[question];
 
-        if (isCorrect) {
-          score++;
+        if (!selected) {
+          unanswered++;
+          feedback.textContent =
+            "Please answer this question. " + answer.explanation;
+          feedback.className = "answer-feedback";
+          return;
         }
 
-        const explanation = document.createElement("p");
-        const status = isCorrect ? "Correct" : "Not quite";
-        explanation.textContent =
-          `${index + 1}. ${status}. ${item.explanation}`;
-        explanations.appendChild(explanation);
+        if (selected.value === answer.correct) {
+          score++;
+          feedback.textContent = "Correct! " + answer.explanation;
+          feedback.className = "answer-feedback correct";
+        } else {
+          feedback.textContent = "Not quite. " + answer.explanation;
+          feedback.className = "answer-feedback incorrect";
+        }
       });
 
-      scoreHeading.textContent = `Your score: ${score} out of ${quizData.length}`;
-      result.hidden = false;
-      result.scrollIntoView({ behavior: "smooth", block: "start" });
+      results.hidden = false;
+      results.innerHTML =
+        "<h2>Your Result: " + score + " / " + Object.keys(answers).length +
+        "</h2><p>" +
+        (unanswered
+          ? "You left " + unanswered + " question(s) unanswered. Review the feedback below and try again."
+          : score === Object.keys(answers).length
+            ? "Excellent work! You answered every question correctly."
+            : "Review the explanations below to reinforce what you learned.") +
+        "</p>";
+
+      retryButton.hidden = false;
+      results.scrollIntoView({ behavior: "smooth", block: "start" });
     });
 
     retryButton.addEventListener("click", function () {
-      quizForm.reset();
-      result.hidden = true;
-      explanations.replaceChildren();
-      scoreHeading.textContent = "";
-      quizForm.scrollIntoView({ behavior: "smooth", block: "start" });
+      form.reset();
+
+      Object.keys(answers).forEach(function (question) {
+        const feedback = document.getElementById("feedback-" + question);
+        feedback.textContent = "";
+        feedback.className = "answer-feedback";
+      });
+
+      results.hidden = true;
+      results.textContent = "";
+      retryButton.hidden = true;
+      form.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   </script>
 </body>
