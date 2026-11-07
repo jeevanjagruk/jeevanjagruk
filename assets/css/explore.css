@@ -1,0 +1,452 @@
+/* =========================================
+   JEEVAN JAGRUK — EXPLORE HEALTHCARE
+   ========================================= */
+
+.explore-hero {
+    background: linear-gradient(135deg, #0B1020 0%, #14243D 65%, #075B63 100%);
+    color: #ffffff;
+    padding: 100px 20px 85px;
+    text-align: center;
+}
+
+.explore-hero .container {
+    max-width: 1050px;
+    margin: auto;
+}
+
+.section-label {
+    display: inline-block;
+    color: #0D9488;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.explore-hero .section-label {
+    color: #5EEAD4;
+}
+
+.explore-hero h1 {
+    font-size: clamp(36px, 6vw, 62px);
+    line-height: 1.15;
+    font-weight: 800;
+    margin: 15px 0 22px;
+}
+
+.explore-hero > .container > p {
+    max-width: 760px;
+    margin: 0 auto;
+    color: #D1DCEB;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.explore-hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 65px;
+    margin-top: 55px;
+    flex-wrap: wrap;
+}
+
+.explore-hero-stats div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.explore-hero-stats strong {
+    font-size: 34px;
+    color: #5EEAD4;
+}
+
+.explore-hero-stats span {
+    color: #D1DCEB;
+    font-size: 13px;
+}
+
+/* SEARCH */
+
+.explore-search-section {
+    padding: 65px 20px;
+    background: #F1F5F9;
+    text-align: center;
+}
+
+.explore-search-section .container {
+    max-width: 850px;
+    margin: auto;
+}
+
+.explore-search-section h2,
+.explore-categories h2,
+.featured-divisions h2,
+.all-divisions h2,
+.learning-pathways h2,
+.explore-resources h2 {
+    font-size: clamp(25px, 4vw, 36px);
+    color: #0B1020;
+    margin-bottom: 14px;
+}
+
+.explore-search-section p,
+.explore-categories > .container > p,
+.all-divisions > .container > p {
+    color: #64748B;
+    line-height: 1.7;
+}
+
+.explore-search-box {
+    display: flex;
+    max-width: 700px;
+    margin: 30px auto 0;
+    background: #ffffff;
+    border: 1px solid #DCE4EC;
+    border-radius: 12px;
+    padding: 7px;
+    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.07);
+}
+
+.explore-search-box input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    padding: 15px;
+    font-size: 15px;
+    background: transparent;
+    color: #0B1020;
+}
+
+.explore-search-box button {
+    background: #0D9488;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 0 25px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.explore-search-box button:hover {
+    background: #0F766E;
+}
+
+/* COMMON SECTIONS */
+
+.section-padding {
+    padding: 85px 20px;
+}
+
+.explore-categories,
+.all-divisions {
+    background: #ffffff;
+}
+
+.featured-divisions,
+.learning-pathways {
+    background: #F1F5F9;
+}
+
+.explore-categories .container,
+.featured-divisions .container,
+.all-divisions .container,
+.learning-pathways .container,
+.explore-resources .container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.category-grid,
+.division-grid,
+.pathway-grid,
+.resource-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    margin-top: 35px;
+}
+
+/* CATEGORY CARDS */
+
+.category-card,
+.division-card,
+.pathway-card {
+    background: #ffffff;
+    border: 1px solid #E2E8F0;
+    border-radius: 16px;
+    padding: 25px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.category-card:hover,
+.division-card:hover,
+.pathway-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 35px rgba(15, 23, 42, 0.09);
+}
+
+.category-card .category-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: #CCFBF1;
+    color: #0F766E;
+    font-weight: 800;
+    margin-bottom: 18px;
+}
+
+.category-card h3,
+.division-card h3,
+.pathway-card h3 {
+    color: #0B1020;
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.category-card p,
+.division-card p,
+.pathway-card p {
+    color: #64748B;
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+.category-card .category-count {
+    display: inline-block;
+    margin-top: 15px;
+    color: #0D9488;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* DIVISION CARDS */
+
+.division-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 210px;
+}
+
+.division-card .division-number {
+    color: #0D9488;
+    font-size: 12px;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.division-card .division-category {
+    display: inline-block;
+    color: #64748B;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    margin-top: auto;
+    padding-top: 20px;
+}
+
+.division-card.featured {
+    border-top: 4px solid #0D9488;
+}
+
+/* FILTER BUTTONS */
+
+.division-filter {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.division-filter button {
+    border: 1px solid #CBD5E1;
+    background: #ffffff;
+    color: #334155;
+    border-radius: 30px;
+    padding: 10px 17px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.division-filter button:hover,
+.division-filter button.active {
+    background: #0D9488;
+    border-color: #0D9488;
+    color: #ffffff;
+}
+
+#noDivisionResults {
+    padding: 35px 0;
+    color: #64748B;
+    text-align: center;
+}
+
+/* LEARNING PATHWAYS */
+
+.pathway-card {
+    border-top: 4px solid #0D9488;
+}
+
+.pathway-card h3 {
+    font-size: 21px;
+}
+
+/* RESOURCES */
+
+.explore-resources {
+    background: #ffffff;
+}
+
+.resource-grid a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100px;
+    padding: 20px;
+    text-align: center;
+    background: #F1F5F9;
+    border: 1px solid #E2E8F0;
+    border-radius: 14px;
+    color: #0B1020;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+.resource-grid a:hover {
+    background: #CCFBF1;
+    border-color: #0D9488;
+    color: #0F766E;
+}
+
+/* DISCLAIMER */
+
+.medical-disclaimer {
+    background: #FFF7ED;
+    border-top: 1px solid #FED7AA;
+    border-bottom: 1px solid #FED7AA;
+    padding: 35px 20px;
+}
+
+.medical-disclaimer .container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.medical-disclaimer h2 {
+    color: #9A3412;
+    font-size: 19px;
+    margin-bottom: 12px;
+}
+
+.medical-disclaimer p {
+    color: #7C2D12;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* FOOTER */
+
+.site-footer {
+    background: #0B1020;
+    color: #ffffff;
+    text-align: center;
+    padding: 45px 20px;
+}
+
+.site-footer h3 {
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.site-footer p {
+    color: #CBD5E1;
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+.site-footer a {
+    display: inline-block;
+    margin-top: 15px;
+    color: #5EEAD4;
+    text-decoration: none;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 900px) {
+    .category-grid,
+    .division-grid,
+    .pathway-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .resource-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .explore-hero-stats {
+        gap: 35px;
+    }
+}
+
+@media (max-width: 600px) {
+    .explore-hero {
+        padding: 75px 18px 65px;
+    }
+
+    .explore-hero-stats {
+        gap: 25px;
+    }
+
+    .explore-hero-stats strong {
+        font-size: 27px;
+    }
+
+    .section-padding {
+        padding: 60px 18px;
+    }
+
+    .category-grid,
+    .division-grid,
+    .pathway-grid,
+    .resource-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .explore-search-box {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .explore-search-box button {
+        min-height: 48px;
+    }
+
+    .division-filter {
+        gap: 8px;
+    }
+
+    .division-filter button {
+        font-size: 12px;
+        padding: 9px 13px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .category-card,
+    .division-card,
+    .pathway-card,
+    .resource-grid a {
+        transition: none;
+    }
+}
