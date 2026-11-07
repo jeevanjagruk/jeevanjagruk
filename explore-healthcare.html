@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Explore Healthcare | Jeevan Jagruk</title>
+
+    <meta name="description" content="Explore 68 healthcare divisions, medical sciences, clinical specialties, public health and healthcare education with Jeevan Jagruk.">
+
+    <meta name="theme-color" content="#0B1020">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/explore.css">
+</head>
+
+<body>
+
+    <div class="announcement-bar">
+        Welcome to Jeevan Jagruk — Your gateway to healthcare knowledge and awareness.
+    </div>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="index.html" class="brand">
+                <span>✚ Jeevan Jagruk</span>
+                <small>HEALTHCARE KNOWLEDGE PLATFORM</small>
+            </a>
+
+            <nav class="main-nav">
+                <a href="index.html">Home</a>
+                <a href="explore-healthcare.html" aria-current="page">Explore Healthcare</a>
+                <a href="learning-centre.html">Learning Centre</a>
+                <a href="resources.html">Resources</a>
+                <a href="projects.html">Projects</a>
+                <a href="blog.html">Blog</a>
+                <a href="community.html">Community</a>
+                <a href="about.html">About Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- PAGE HERO -->
+        <section class="explore-hero">
+            <div class="container">
+                <span class="section-label">THE HEALTHCARE KNOWLEDGE DIRECTORY</span>
+
+                <h1>Explore the World of Healthcare</h1>
+
+                <p>
+                    Discover medical sciences, clinical specialties,
+                    diagnostic disciplines, public health and much more
+                    through one comprehensive healthcare knowledge platform.
+                </p>
+
+                <div class="explore-hero-stats">
+                    <div><strong>68</strong><span>Healthcare Divisions</span></div>
+                    <div><strong>8</strong><span>Major Categories</span></div>
+                    <div><strong>1</strong><span>Knowledge Platform</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEARCH -->
+        <section class="explore-search-section">
+            <div class="container">
+                <h2>Find Your Area of Interest</h2>
+                <p>Search for medical subjects, specialties and healthcare disciplines.</p>
+
+                <div class="explore-search-box">
+                    <input
+                        type="search"
+                        id="divisionSearch"
+                        placeholder="Search healthcare divisions..."
+                        aria-label="Search healthcare divisions"
+                    >
+                    <button type="button" id="divisionSearchButton">Search</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORY OVERVIEW -->
+        <section class="explore-categories section-padding">
+            <div class="container">
+                <span class="section-label">EXPLORE BY CATEGORY</span>
+                <h2>Eight Major Healthcare Domains</h2>
+                <p>Choose a category to discover its healthcare divisions.</p>
+
+                <div id="categoryGrid" class="category-grid"></div>
+            </div>
+        </section>
+
+        <!-- FEATURED DIVISIONS -->
+        <section class="featured-divisions section-padding">
+            <div class="container">
+                <span class="section-label">START EXPLORING</span>
+                <h2>Featured Healthcare Divisions</h2>
+                <div id="featuredDivisionsGrid" class="division-grid"></div>
+            </div>
+        </section>
+
+        <!-- ALL DIVISIONS -->
+        <section class="all-divisions section-padding">
+            <div class="container">
+                <span class="section-label">COMPLETE DIRECTORY</span>
+                <h2>All Healthcare Divisions</h2>
+
+                <p>
+                    Explore the complete directory of 68 healthcare
+                    divisions across eight major domains.
+                </p>
+
+                <div class="division-filter" id="divisionFilters">
+                    <button type="button" class="active" data-filter="all">All Divisions</button>
+                </div>
+
+                <div id="divisionResults" class="division-grid"></div>
+
+                <p id="noDivisionResults" hidden>
+                    No matching healthcare divisions found.
+                </p>
+            </div>
+        </section>
+
+        <!-- LEARNING PATHWAYS -->
+        <section class="learning-pathways section-padding">
+            <div class="container">
+                <span class="section-label">YOUR LEARNING JOURNEY</span>
+                <h2>Choose Your Learning Pathway</h2>
+
+                <div class="pathway-grid">
+                    <article class="pathway-card">
+                        <h3>Beginner</h3>
+                        <p>
+                            Build your understanding of basic healthcare
+                            concepts, human biology and preventive health.
+                        </p>
+                    </article>
+
+                    <article class="pathway-card">
+                        <h3>Intermediate</h3>
+                        <p>
+                            Explore medical sciences, common diseases,
+                            diagnostic concepts and healthcare specialties.
+                        </p>
+                    </article>
+
+                    <article class="pathway-card">
+                        <h3>Advanced</h3>
+                        <p>
+                            Explore specialised medical subjects,
+                            research concepts and evidence-based healthcare.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- RELATED RESOURCES -->
+        <section class="explore-resources section-padding">
+            <div class="container">
+                <span class="section-label">CONTINUE LEARNING</span>
+                <h2>Explore More Knowledge</h2>
+
+                <div class="resource-grid">
+                    <a href="learning-centre.html">Medical Learning Centre</a>
+                    <a href="resources.html">Healthcare Resources</a>
+                    <a href="blog.html">Healthcare Articles</a>
+                    <a href="projects.html">Awareness Projects</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- DISCLAIMER -->
+        <section class="medical-disclaimer">
+            <div class="container">
+                <h2>Medical Education Disclaimer</h2>
+                <p>
+                    Jeevan Jagruk provides healthcare information for
+                    educational and public awareness purposes. Website
+                    content is not a substitute for professional medical
+                    advice, diagnosis or treatment. Always consult a
+                    qualified healthcare professional for personal
+                    medical concerns.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <h3>Jeevan Jagruk</h3>
+            <p>Health Awareness. Informed Choices. Safer Lives.</p>
+            <p>© 2026 Jeevan Jagruk. All rights reserved.</p>
+            <a href="index.html">Return to Homepage</a>
+        </div>
+    </footer>
+
+</body>
+</html>
