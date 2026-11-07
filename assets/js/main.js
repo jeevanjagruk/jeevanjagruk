@@ -1,42 +1,25 @@
-/* ==========================================
-   JEEVAN JAGRUK
-   MAIN JAVASCRIPT FOUNDATION
-========================================== */
-
 "use strict";
 
 /* ==========================================
-   WEBSITE CONFIGURATION
+   JEEVAN JAGRUK — WEBSITE CONFIGURATION
 ========================================== */
 
 const JeevanJagruk = {
-
     name: "Jeevan Jagruk",
-
     tagline: "Health Awareness. Informed Choices. Safer Lives.",
-
-    version: "1.0.0",
-
-    settings: {
-        enableSearch: true,
-        enableMobileNavigation: true,
-        enableAnimations: true
-    }
-
+    version: "1.0.0"
 };
 
 
 /* ==========================================
-   DOM ELEMENT SELECTOR
+   DOM UTILITIES
 ========================================== */
 
-const select = (selector, parent = document) => {
-    return parent.querySelector(selector);
-};
+const select = (selector, parent = document) =>
+    parent.querySelector(selector);
 
-const selectAll = (selector, parent = document) => {
-    return [...parent.querySelectorAll(selector)];
-};
+const selectAll = (selector, parent = document) =>
+    [...parent.querySelectorAll(selector)];
 
 
 /* ==========================================
@@ -44,7 +27,6 @@ const selectAll = (selector, parent = document) => {
 ========================================== */
 
 function initializeAnnouncement() {
-
     const announcement = select("#announcement-bar");
 
     if (!announcement) return;
@@ -53,117 +35,123 @@ function initializeAnnouncement() {
         <div class="container">
             <p>
                 Welcome to Jeevan Jagruk —
-                Explore healthcare knowledge and awareness.
+                Your gateway to healthcare knowledge and awareness.
             </p>
         </div>
     `;
-
 }
 
 
 /* ==========================================
-   FOOTER FOUNDATION
+   MAIN NAVIGATION
 ========================================== */
 
-function initializeFooter() {
+function initializeHeader() {
+    const header = select("#site-header");
 
-    const footer = select("#site-footer");
+    if (!header) return;
 
-    if (!footer) return;
-
-    const currentYear = new Date().getFullYear();
-
-    footer.innerHTML = `
+    header.innerHTML = `
         <div class="container">
 
-            <div class="footer-content">
+            <div class="navbar">
 
-                <div class="footer-brand">
-                    <h2>Jeevan Jagruk</h2>
+                <a href="index.html" class="brand">
+                    <span class="brand-icon">✚</span>
 
-                    <p>
-                        Health Awareness.
-                        Informed Choices.
-                        Safer Lives.
-                    </p>
+                    <span class="brand-text">
+                        <strong>Jeevan Jagruk</strong>
+                        <small>HEALTHCARE KNOWLEDGE PLATFORM</small>
+                    </span>
+                </a>
 
-                    <p>
-                        A healthcare knowledge and
-                        public awareness platform.
-                    </p>
-                </div>
+                <button
+                    class="menu-toggle"
+                    id="menu-toggle"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false"
+                    aria-controls="nav-menu"
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
 
-                <div class="footer-links">
+                <nav class="nav-menu" id="nav-menu">
 
-                    <h3>Explore</h3>
+                    <a href="index.html">Home</a>
 
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="#healthcare-divisions">Healthcare Divisions</a></li>
-                        <li><a href="#learning-centre">Learning Centre</a></li>
-                        <li><a href="#health-resources">Health Resources</a></li>
-                    </ul>
+                    <a href="#healthcare-divisions">
+                        Explore Healthcare
+                    </a>
 
-                </div>
+                    <a href="#learning-centre">
+                        Learning Centre
+                    </a>
 
-                <div class="footer-links">
+                    <a href="#health-resources">
+                        Resources
+                    </a>
 
-                    <h3>Platform</h3>
+                    <a href="#awareness-projects">
+                        Projects
+                    </a>
 
-                    <ul>
-                        <li><a href="#awareness-projects">Projects</a></li>
-                        <li><a href="#latest-articles">Articles</a></li>
-                        <li><a href="#community">Community</a></li>
-                    </ul>
+                    <a href="#latest-articles">
+                        Blog
+                    </a>
 
-                </div>
+                    <a href="#community">
+                        Community
+                    </a>
 
-            </div>
+                    <a href="#site-footer" class="nav-contact">
+                        About Us
+                    </a>
 
-            <div class="footer-bottom">
-
-                <p>
-                    © ${currentYear} Jeevan Jagruk.
-                    All rights reserved.
-                </p>
-
-                <p>
-                    Educational information is not a
-                    substitute for professional medical advice.
-                </p>
+                </nav>
 
             </div>
 
         </div>
     `;
 
+    initializeMobileNavigation();
 }
 
 
 /* ==========================================
-   SMOOTH SCROLL
+   MOBILE NAVIGATION
 ========================================== */
 
-function initializeSmoothScroll() {
+function initializeMobileNavigation() {
 
-    selectAll('a[href^="#"]').forEach(link => {
+    const toggle = select("#menu-toggle");
+    const menu = select("#nav-menu");
 
-        link.addEventListener("click", function (event) {
+    if (!toggle || !menu) return;
 
-            const targetId = this.getAttribute("href");
+    toggle.addEventListener("click", () => {
 
-            if (!targetId || targetId === "#") return;
+        const isOpen = menu.classList.toggle("active");
 
-            const target = select(targetId);
+        toggle.classList.toggle("active", isOpen);
 
-            if (!target) return;
+        toggle.setAttribute(
+            "aria-expanded",
+            String(isOpen)
+        );
 
-            event.preventDefault();
+    });
 
-            target.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
+    selectAll("#nav-menu a").forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            menu.classList.remove("active");
+            toggle.classList.remove("active");
+
+            toggle.setAttribute("aria-expanded", "false");
 
         });
 
@@ -173,7 +161,77 @@ function initializeSmoothScroll() {
 
 
 /* ==========================================
-   ACCESSIBILITY SUPPORT
+   FOOTER
+========================================== */
+
+function initializeFooter() {
+
+    const footer = select("#site-footer");
+
+    if (!footer) return;
+
+    const year = new Date().getFullYear();
+
+    footer.innerHTML = `
+        <div class="container">
+
+            <div class="footer-content">
+
+                <div class="footer-brand">
+                    <h2>Jeevan Jagruk</h2>
+
+                    <p>${JeevanJagruk.tagline}</p>
+
+                    <p>
+                        A healthcare knowledge,
+                        education and public awareness platform.
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Explore</h3>
+
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#healthcare-divisions">Healthcare Divisions</a></li>
+                        <li><a href="#learning-centre">Learning Centre</a></li>
+                        <li><a href="#health-resources">Resources</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Discover</h3>
+
+                    <ul>
+                        <li><a href="#awareness-projects">Projects</a></li>
+                        <li><a href="#latest-articles">Articles</a></li>
+                        <li><a href="#community">Community</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+
+                <p>
+                    © ${year} Jeevan Jagruk.
+                    All rights reserved.
+                </p>
+
+                <p>
+                    Educational information does not replace
+                    professional medical advice.
+                </p>
+
+            </div>
+
+        </div>
+    `;
+}
+
+
+/* ==========================================
+   ACCESSIBILITY
 ========================================== */
 
 function initializeAccessibility() {
@@ -192,32 +250,27 @@ function initializeAccessibility() {
 
 
 /* ==========================================
-   APPLICATION INITIALIZATION
+   WEBSITE INITIALIZATION
 ========================================== */
 
 function initializeWebsite() {
 
     initializeAnnouncement();
 
-    initializeFooter();
+    initializeHeader();
 
-    initializeSmoothScroll();
+    initializeFooter();
 
     initializeAccessibility();
 
     console.info(
-        `${JeevanJagruk.name} website initialized successfully.`
+        `${JeevanJagruk.name} initialized successfully.`
     );
 
 }
 
 
-/* ==========================================
-   START APPLICATION
-========================================== */
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    initializeWebsite();
-
-});
+document.addEventListener(
+    "DOMContentLoaded",
+    initializeWebsite
+);
